@@ -1,13 +1,13 @@
 import sys
 import pygame
 
-from asteroidfield import *
 from player import *
 from constants import *
 from asteroidfield import *
-from logger import log_state, log_event
-from asteroid import Asteroid
+from asteroidfield import *
 from shot import Shot
+from asteroid import Asteroid
+from logger import log_state, log_event
 
 def main():
     print(f"Starting Asteroids with pygame version {pygame.version.ver}")
@@ -53,7 +53,7 @@ def main():
             for bullet in shots:
                 if ast.collides_with(bullet):
                     log_event("asteroid_shot")
-                    ast.kill()
+                    ast.split()
                     bullet.kill()
         for obj in drawable:
             obj.draw(screen)
